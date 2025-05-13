@@ -5,40 +5,78 @@
   <title>Mitigo Group Browser Tester</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
     }
+
     #header {
-      padding: 10px 20px;
-      background-color: #f4f4f4;
+      margin: 40px 0 20px;
     }
+
     #header img {
-      max-height: 80px;
+      width: 120px;
+      height: auto;
+      filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
     }
+
     #menu {
       display: flex;
-      justify-content: space-around;
-      margin: 20px;
+      flex-direction: column;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
     }
-    #menu button {
-      padding: 15px 25px;
-      font-size: 16px;
+
+    .test-button {
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: 500;
+      border: none;
+      border-radius: 10px;
       cursor: pointer;
+      color: #fff;
+      background: linear-gradient(145deg, #00c6ff, #0072ff);
+      box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .test-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 114, 255, 0.6);
+      background: linear-gradient(145deg, #0099e6, #005ec4);
     }
   </style>
 </head>
 <body>
+
   <div id="header">
     <img 
       src="https://mitigogroup.com/wp-content/uploads/2022/09/mitigo-cyber-security-logo.svg" 
       alt="Mitigo Cyber Security Logo"
     >
   </div>
+
   <div id="menu">
-    <button onclick="runTest('windows')" aria-label="Run Windows Test Files">Windows Test Files</button>
-    <button onclick="runTest('pua')" aria-label="Run Potentially Unwanted Application Test">Potentially Unwanted App</button>
-    <button onclick="runTest('eicar')" aria-label="Run EICAR Test Files">EICAR Test Files</button>
+    <button class="test-button" onclick="runTest('windows')" aria-label="Run Windows Test Files">
+      🪟 Windows Test Files
+    </button>
+    <button class="test-button" onclick="runTest('pua')" aria-label="Run Potentially Unwanted Application Test">
+      ⚠️ Potentially Unwanted App
+    </button>
+    <button class="test-button" onclick="runTest('eicar')" aria-label="Run EICAR Test Files">
+      🧪 EICAR Test Files
+    </button>
   </div>
 
   <script>
