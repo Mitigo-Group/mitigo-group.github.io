@@ -1,1 +1,79 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mitigo Group Browser Tester</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    #header {
+      padding: 10px 20px;
+      background-color: #f4f4f4;
+    }
+    #header img {
+      max-height: 80px;
+    }
+    #menu {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px;
+    }
+    #menu button {
+      padding: 15px 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <img 
+      src="https://mitigogroup.com/wp-content/uploads/2022/09/mitigo-cyber-security-logo.svg" 
+      alt="Mitigo Cyber Security Logo"
+    >
+  </div>
+  <div id="menu">
+    <button onclick="runTest('windows')" aria-label="Run Windows Test Files">Windows Test Files</button>
+    <button onclick="runTest('pua')" aria-label="Run Potentially Unwanted Application Test">Potentially Unwanted App</button>
+    <button onclick="runTest('eicar')" aria-label="Run EICAR Test Files">EICAR Test Files</button>
+  </div>
+
+  <script>
+    const root = 'https://scan.cyberessentials.live/usersc/testfiles';
+
+    const testFiles = {
+      windows: [
+        `${root}/macro/CEPlus.xlsm`,
+        `${root}/macro/CEPlus.docm`,
+        `${root}/windows/CEPlus.zip`,
+        `${root}/windows/CEPlus.bat`,
+        `${root}/windows/CEPlus.scr`,
+        `${root}/windows/CEPlus.exe`,
+        `${root}/windows/CEPlus.pif`,
+        `${root}/windows/CEPlus.lnk`,
+        `${root}/windows-archive/CEPlus.zip`
+      ],
+      pua: [
+        `${root}/amtso/PotentiallyUnwanted.exe`
+      ],
+      eicar: [
+        `${root}/eicar/eicar.zip`,
+        `${root}/eicar/eicar.com`,
+        `${root}/eicar/eicar.rar`,
+        `${root}/eicar/eicar.gz`,
+        `${root}/eicar/eicar.txt`
+      ]
+    };
+
+    function runTest(type) {
+      if (!testFiles[type]) return;
+      testFiles[type].forEach((url, i) => {
+        setTimeout(() => window.open(url, '_blank'), i * 250);
+      });
+    }
+  </script>
+</body>
+</html>
